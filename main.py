@@ -1,19 +1,27 @@
-from PIL import Image, ImageDraw
-from numpy import asarray
+from bdsearch import *
 
 
-# img = Image.open('prueba.png')
-# numpydata = asarray(img)
-# print(numpydata)
+def main():
+
+    menu = True
+    while menu:
+        print("1. Graph-Search")
+        print("2. Depth-First-Search")
+        print("3. Exit")
+        option = int(input("Select an option: "))
+        if option == 1:
+            print("Graph-Search")
+            # Aqui va donde llamamos a la funcion de graph-search
+        elif option == 2:
+            print("Depth-First-Search")
+            # Aqui va donde llamamos a la funcion de depth-first-search
+        elif option == 3:
+            menu = False
+            print("Exit")
+            # exit
+        else:
+            print("Invalid option")
+            # show the menu again
 
 
-img2 = Image.open('prueba.png')
-img2 = img2.resize((140, 140))
-
-pixel = Image.new('RGB', (140, 140), (255, 255, 255))
-pixel = img2.load()
-
-numpydata2 = asarray(img2)
-print(numpydata2)
-print(pixel)
-print(img2)
+main()
