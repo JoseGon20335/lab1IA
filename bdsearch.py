@@ -9,22 +9,6 @@ matrixx = [[0,0,0,0,0],
           [0,0,0,0,0],
                      ]
 
-
-
-def depth_first(grafo):
-  start,end = (0,0),[(4,4)]
-  stack = deque([("", start)])
-  visitado = set()
-  while stack:
-    camino, current = stack.pop()
-    if current in end:
-      return camino
-    if current in visitado:
-      continue
-    visitado.add(current)
-    for direction, vecino in grafo[current]:
-      stack.append((camino+direction,vecino))
-  
 def search(start, camino, graph):
   space = []
   temp = start
@@ -81,6 +65,22 @@ class breadth_first(busqueda):
       for direction, vecino in self.graph[current]:
         cola.append((camino+direction,vecino))
 
+class depth_first(busqueda):
+  def __init__(self):
+    super().__init__(matrixx)
 
+  def algoritmo(self):
+    start,end = (0,0),[(4,4), (0,4)]
+    stack = deque([("", start)])
+    visitado = set()
+    while stack:
+      camino, current = stack.pop()
+      if current in end:
+        return camino
+      if current in visitado:
+        continue
+      visitado.add(current)
+      for direction, vecino in grafo[current]:
+        stack.append((camino+direction,vecino))
 
   
