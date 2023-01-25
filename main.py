@@ -11,7 +11,7 @@ from imgPixel import imgPixel
 def main():
 
     imagen = "prueba.png"
-    print(imgPixel(imagen))
+    imgPixel(imagen)
 
     menu = True
     while menu:
