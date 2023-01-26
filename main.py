@@ -13,10 +13,10 @@ def main():
     imagen = "prueba.png"
     matrix, entrada, salida = imgPixel(imagen)
 
-    print("Entrada: ", entrada)
-    print("Salida: ", salida)
-    for i in range(len(matrix)):
-        print(matrix[i])
+    # print("Entrada: ", entrada)
+    # print("Salida: ", salida)
+    # for i in range(len(matrix)):
+    #     print(matrix[i])
 
     menu = True
     while menu:
