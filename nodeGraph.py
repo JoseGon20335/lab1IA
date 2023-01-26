@@ -37,15 +37,22 @@ def Diagonal(x1, y1, x2, y2, D = 1):
 # Algoritmo A*
 
 def astar(maze, start, end, heuristic = "manhattan"):
-    node_i = Node(None, start)
-    node_f = Node(None, end)
+    node_i = Node(start, None)
+    node_f = Node(end, None)
 
     _open = []
     _closed = []
 
     _open.append(node_i)
+    #print("open: ", _open[0].pos , " , ",  _open[0].parent) 
+    print(_open)
+    print(_closed)
+    #print
+    #print("closed: ", _closed[0].pos , " , ",  _closed[0].parent)
+
 
     while len(_open) > 0:
+        #print("entrando al while")
 
         node_c = _open[0]
         node_c_index = 0
@@ -57,6 +64,8 @@ def astar(maze, start, end, heuristic = "manhattan"):
         _open.pop(node_c_index)
         _closed.append(node_c)
 
+        #rint(" still alive")
+
         if node_c == node_f:
             path = []
             current = node_c
@@ -65,9 +74,18 @@ def astar(maze, start, end, heuristic = "manhattan"):
                 current = current.parent
             return path[::-1]
 
+        
+        print(node_c.pos)
+        print(node_f.pos)
+
         sons = []
 
-        for n in [(0, -1), (0, 1), (-1, 0), (1, 0), (-1, -1), (-1, 1), (1, -1), (1, 1)]:
+        #movimientos posibles
+        # diagonal no permitida
+
+        for n in [(0, -1), (0, 1), (-1, 0), (1, 0)]:
+
+        #for n in [(0, -1), (0, 1), (-1, 0), (1, 0), (-1, -1), (-1, 1), (1, -1), (1, 1)]:
 
             # 0 = camino libre
             # 1 = pared
@@ -75,6 +93,9 @@ def astar(maze, start, end, heuristic = "manhattan"):
             # 3 = fin
 
             node_pos = (node_c.pos[0] + n[0], node_c.pos[1] + n[1])
+
+
+
 
             if node_pos[0] > (len(maze) - 1) or node_pos[0] < 0 or node_pos[1] > (len(maze[len(maze) - 1]) - 1) or node_pos[1] < 0:
                 continue
@@ -85,6 +106,15 @@ def astar(maze, start, end, heuristic = "manhattan"):
             new_node = Node(node_pos, node_c)
 
             sons.append(new_node)
+
+        #print("sons: ", sons)
+        #for e in sons: 
+            #print(e.pos, " , ", e.parent.pos, " , ", e.g, " , ", e.h, " , ", e.f)
+        print("*******************************************************")
+        for e in sons:
+            print(e.pos)
+
+        print("*******************************************************")
 
         for son in sons:
             
@@ -146,12 +176,20 @@ def main():
     print(start)
     print(end)
 
+
+
+
     path = astar(maze, start, end, "manhattan")
+
+    print("----------------------------------------------------")
+
     print(path)
 
-    path = astar(maze, start, end, "diagonal")
-    print(path)
-
+    #path = astar(maze, start, end, "diagonal")
+#
+    #print("----------------------------------------------------")
+    #print(path)
+#
 
 main()
             
