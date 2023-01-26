@@ -29,13 +29,14 @@ def imgPixel(img):
                 temp.append(0)
             elif x[i][j][1] >= 250 and x[i][j][0] <= 20:
                 temp.append(2)
-                salida.append((int(j/2), int(i/2)))
+                salida.append((int(i/2), int(j/2)))
             elif x[i][j][0] >= 250 and x[i][j][1] <= 20:
                 temp.append(3)
-                entrada = (int(j/2), int(i/2))
+                entrada = (int(i/2), int(j/2))
             else:
                 temp.append(1)
 
         matrix.append(temp)
 
     return matrix, entrada, salida
+
