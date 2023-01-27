@@ -41,45 +41,24 @@ def imgPixel(img):
     return matrix, entrada, salida
 
 
-def matrixImage(matrix):
+def matrixImage(matrix, name):
 
     matriz = array(matrix)
 
     newImg = Image.new(
-        'RGB', ((matriz.shape[0] * 2), (matriz.shape[0] * 2)), (0, 0, 0, 0))
+        'RGB', ((matriz.shape[0]), (matriz.shape[0])), (0, 0, 0, 0))
 
-    resultado = []
-    x = 0
-    y = 0
     for i in range(len(matriz)):
         for j in range(len(matriz)):
-
             if matriz[i][j] == 0:
                 newImg.putpixel((i, j), (255, 255, 255))
-                # newImg.putpixel((i, j), (255, 255, 255))
-                # newImg.putpixel((i, j), (255, 255, 255))
-                # newImg.putpixel((i, j), (255, 255, 255))
             elif matriz[i][j] == 1:
                 newImg.putpixel((i, j), (0, 0, 0))
-                # newImg.putpixel((i, j), (0, 0, 0))
-                # newImg.putpixel((i, j), (0, 0, 0))
-                # newImg.putpixel((i, j), (0, 0, 0))
             elif matriz[i][j] == 2:
                 newImg.putpixel((i, j), (0, 255, 0))
-                # newImg.putpixel((i, j), (0, 255, 0))
-                # newImg.putpixel((i, j), (0, 255, 0))
-                # newImg.putpixel((i, j), (0, 255, 0))
             elif matriz[i][j] == 3:
                 newImg.putpixel((i, j), (255, 0, 0))
-                # newImg.putpixel((i, j), (255, 0, 0))
-                # newImg.putpixel((i, j), (255, 0, 0))
-                # newImg.putpixel((i, j), (255, 0, 0))
             elif matriz[i][j] == 4:
                 newImg.putpixel((i, j), (255, 0, 255))
-                # newImg.putpixel((i, j), (255, 0, 0))
-                # newImg.putpixel((i, j), (255, 0, 0))
-                # newImg.putpixel((i, j), (255, 0, 0))
-            y = y + 1
-        x = x + 1
 
-    newImg.save('resultadoFinal.png')
+    newImg.save(name)
