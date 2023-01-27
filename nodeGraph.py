@@ -66,9 +66,9 @@ def astar_3(m, s, es, h = "manhattan"):
         #nodo con menor f
         lowest_f = [n_i.f, n_i.pos]
 
-        print(e)
-        print(n_actual.pos)
-        print("------------------")
+        #print(e)
+        #print(n_actual.pos)
+        #print("------------------")
 
         
         while n_actual.pos != e:
