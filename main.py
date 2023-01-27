@@ -10,10 +10,13 @@ from imgPixel import imgPixel, matrixImage
 
 def main():
 
-    imagen = "prueba.png"
+    imagen = "prueba1.png"
     matrix, entrada, salida = imgPixel(imagen)
 
-    matrixImage(matrix, "prueba.png")
+    for i in range(len(matrix)):
+        print(matrix[i])
+
+    matrixImage(matrix, "pruebaPixel.png")
 
     menu = True
     while menu:
