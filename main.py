@@ -10,8 +10,10 @@ from imgPixel import imgPixel, matrixImage
 
 def main():
 
-    imagen = "prueba1.png"
-    matrix, entrada, salida = imgPixel(imagen)
+    imagen1 = "prueba1.png"
+    imagen2 = "prueba2.png"
+    imagen3 = "prueba3.png"
+    matrix, entrada, salida = imgPixel(imagen1)
 
     for i in range(len(matrix)):
         print(matrix[i])
