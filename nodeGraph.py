@@ -68,6 +68,7 @@ def astar_3(m, s, es, h = "manhattan"):
 
         print(e)
         print(n_actual.pos)
+        print("------------------")
 
         
         while n_actual.pos != e:
@@ -132,15 +133,18 @@ def astar_3(m, s, es, h = "manhattan"):
             # paso 4: seleccionar el nodo con menor f
 
 
-            print("checkpoint 5")
+            #print("checkpoint 5")
 
             # problema con la actualización de lowest_f y n_actual
 
             #seleccionar el nodo con menor f
             #lowest_f = [nodes[0].f, nodes[0].pos]
             for node in nodes:
-                if node.f < lowest_f[0]:
+                #print(" - lowest: ",lowest_f[1], lowest_f[0])
+                #print(" - node: ",node.pos, node.f)
+                if node.f <= lowest_f[0] and node.pos != n_actual.pos:
                     lowest_f = [node.f, node.pos]
+                    break
 
 
             #print("checkpoint 6")
@@ -213,9 +217,9 @@ def main():
 
     #formato de coordenadas y,x
 
-    print(start)
-    print(end)
-
+    #print(start)
+    #print(end)
+#
     path = astar_3(maze, start, end, "manhattan")
 
     print(path)
