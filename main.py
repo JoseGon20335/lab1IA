@@ -5,20 +5,21 @@
 #   Diego Perdomo
 
 from bdsearch import *
-from imgPixel import imgPixel
+from imgPixel import imgPixel, matrixImage
 
 
 def main():
 
     imagen = "prueba.png"
     matrix, entrada, salida = imgPixel(imagen)
-    print(entrada, salida)
-    print(matrix)
 
     # print("Entrada: ", entrada)
     # print("Salida: ", salida)
     # for i in range(len(matrix)):
     #     print(matrix[i])
+
+    resultadoF = matrixImage(matrix)
+    # print("Resultado: ", resultadoF)
 
     menu = True
     while menu:
@@ -37,7 +38,10 @@ def main():
             breadth = breadth_first(matrix)
             print(breadth.algoritmo())
             print(breadth.search())
-            print(breadth.matrix)
+            temp = breadth.matrix
+            print(temp)
+            for i in range(len(temp)):
+                print(temp[i])
         elif option == 3:
             print("Depth-First-Search")
             depth = depth_first(matrix)
